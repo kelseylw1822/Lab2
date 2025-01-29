@@ -10,7 +10,6 @@ int main()
     char patient;
     double hospitalCharge, dailyRoomRate, labFees, medicationCharges;
     int numDays;
-    bool validateUser = false;
     
     cout << "This program will calculate a patient's hospital charges." << endl;
     
@@ -34,7 +33,6 @@ int main()
         }
         cout << "Daily room rate ($): ";
         cin >> dailyRoomRate;
-        validateUser = validateUserInput(dailyRoomRate);
         while (!validateUserInput(dailyRoomRate))
         {
             cout << "Invalid input: Values can not be negative. Please try entering again: " ;
@@ -42,7 +40,6 @@ int main()
         }
         cout << "Lab fees and other service charges ($): ";
         cin >> labFees;
-        validateUser = validateUserInput(labFees);
         while (!validateUserInput(labFees))
         {
             cout << "Invalid input: Values can not be negative. Please try entering again: " ;
@@ -50,7 +47,6 @@ int main()
         }
         cout << "Medication charges ($): ";
         cin >> medicationCharges;
-        validateUser = validateUserInput(medicationCharges);
         while (!validateUserInput(medicationCharges))
         {
             cout << "Invalid input: Values can not be negative. Please try entering again: " ;
@@ -65,7 +61,6 @@ int main()
     {
         cout << "Lab fees and other service charges ($): ";
         cin >> labFees;
-        validateUser = validateUserInput(labFees);
         while (!validateUserInput(labFees))
         {
             cout << "Invalid input: Values can not be negative. Please try entering again: ";
@@ -73,7 +68,6 @@ int main()
         }
         cout << "Medication charges ($): ";
         cin >> medicationCharges;
-        validateUser = validateUserInput(medicationCharges);
         while (!validateUserInput(medicationCharges))
         {
             cout << "Invalid input: Values can not be negative. Please try entering again: " ;
