@@ -24,49 +24,65 @@ int main()
         cin >> patient;
     }
     
-    do {
-        if (patient == 'I') {  // Inpatient
-            cout << "Number of days in the hospital: ";
-            cin >> numDays;
-            cout << "Daily room rate ($): ";
-            cin >> dailyRoomRate;
-            cout << "Lab fees and other service charges ($): ";
-            cin >> labFees;
-            cout << "Medication charges ($): ";
-            cin >> medicationCharges;
-            
-            // Validate the input
-            if (validateUserInput(numDays, dailyRoomRate, labFees, medicationCharges))
-            {
-                validateUser = true;
-                hospitalCharge = calcTotalCharges(numDays, dailyRoomRate, labFees, medicationCharges);
-                cout << "Your total hospital bills is $" << fixed << setprecision(2) << hospitalCharge << endl;
-            }
-            else
-            {
-                cout << "Invalid input: Values can not be negative. Please try entering again." << endl;
-            }
-        }
-        else // Outpatient
+    if (patient == 'I') {  // Inpatient
+        cout << "Number of days in the hospital: ";
+        cin >> numDays;
+        while (!validateUserInput(numDays))
         {
-            cout << "Lab fees and other service charges ($): ";
-            cin >> labFees;
-            cout << "Medication charges ($): ";
-            cin >> medicationCharges;
-            
-            // Validate the input
-            if (validateUserInput(0, 0.0, labFees, medicationCharges))
-            {
-                validateUser = true;
-                hospitalCharge = calcTotalCharges(labFees, medicationCharges);
-                cout << "Your total hospital bills is $" << fixed << setprecision(2) << hospitalCharge << endl;
-            }
-            else
-            {
-                cout << "Invalid input: Values can not be negative. Please try entering again." << endl;
-            }
+            cout << "Invalid input: Values can not be negative. Please try entering again: ";
+            cin >> numDays;
         }
-    } while (validateUser == false);
+        cout << "Daily room rate ($): ";
+        cin >> dailyRoomRate;
+        validateUser = validateUserInput(dailyRoomRate);
+        while (!validateUserInput(dailyRoomRate))
+        {
+            cout << "Invalid input: Values can not be negative. Please try entering again: " ;
+            cin >> dailyRoomRate;
+        }
+        cout << "Lab fees and other service charges ($): ";
+        cin >> labFees;
+        validateUser = validateUserInput(labFees);
+        while (!validateUserInput(labFees))
+        {
+            cout << "Invalid input: Values can not be negative. Please try entering again: " ;
+            cin >> labFees;
+        }
+        cout << "Medication charges ($): ";
+        cin >> medicationCharges;
+        validateUser = validateUserInput(medicationCharges);
+        while (!validateUserInput(medicationCharges))
+        {
+            cout << "Invalid input: Values can not be negative. Please try entering again: " ;
+            cin >> medicationCharges;
+        }
+            
+        hospitalCharge = calcTotalCharges(numDays, dailyRoomRate, labFees, medicationCharges);
+        cout << "Your total hospital bills is $" << fixed << setprecision(2) << hospitalCharge << endl;
+        
+    }
+    else // Outpatient
+    {
+        cout << "Lab fees and other service charges ($): ";
+        cin >> labFees;
+        validateUser = validateUserInput(labFees);
+        while (!validateUserInput(labFees))
+        {
+            cout << "Invalid input: Values can not be negative. Please try entering again: ";
+            cin >> labFees;
+        }
+        cout << "Medication charges ($): ";
+        cin >> medicationCharges;
+        validateUser = validateUserInput(medicationCharges);
+        while (!validateUserInput(medicationCharges))
+        {
+            cout << "Invalid input: Values can not be negative. Please try entering again: " ;
+            cin >> medicationCharges;
+        }
+        
+        hospitalCharge = calcTotalCharges(labFees, medicationCharges);
+        cout << "Your total hospital bills is $" << fixed << setprecision(2) << hospitalCharge << endl;
+    }
     
     return 0;
 }

@@ -1,8 +1,8 @@
 #include "validateUserInput.h"
 
-bool validateUserInput(int days, double rate, double labFees, double medCharges)
+bool validateUserInput(double input)
 {
-    if (days < 0 || rate < 0.0 || labFees < 0.0 || medCharges < 0.0)
+    if (input < 0)
     {
         return false;
     }
