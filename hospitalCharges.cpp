@@ -8,22 +8,21 @@ using namespace std;
 int main()
 {
     char patient;
-    double hospitalCharge;
+    double hospitalCharge, dailyRoomRate, labFees, medicationCharges;
+    int numDays;
+    bool validateUser = false;
     
     cout << "This program will calculate a patient's hospital charges." << endl;
     
     cout << "Enter I for in-patient or O for out-patient: ";
     cin >> patient;
+    
     while (patient != 'I' && patient != 'O')
     {
         cout << "Invalid input. Please try again." << endl;
         cout << "Enter I for in-patient or O for out-patient: ";
         cin >> patient;
     }
-    
-    int numDays;
-    double dailyRoomRate, labFees, medicationCharges;
-    bool validateUser = false;
     
     do {
         if (patient == 'I') {  // Inpatient
