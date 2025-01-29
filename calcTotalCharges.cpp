@@ -1,3 +1,9 @@
+// My Name: Kelsey Wessel
+// My Class: CPSC 1021
+// Date: 01/29/2025
+// Desc: Calculates the total cost of the hospital stay.
+// Time: About 15 minutes.
+
 #include <iostream>
 #include "calcTotalCharges.h"
 using namespace std;

@@ -1,5 +1,10 @@
+// My Name: Kelsey Wessel
+// My Class: CPSC 1021
+// Date: 01/29/2025
+// Desc: Determines the total hospital charge of a patient depending on their input.
+// Time: About 1 hour for 2 days.
+
 #include <iostream>
-#include <vector>
 #include <iomanip>
 #include "calcTotalCharges.h"
 #include "validateUserInput.h"
